@@ -1,0 +1,14 @@
+client/src, create these folders:
+
+    assets/ (Images, global CSS)
+
+    components/ (Reusable UI like Buttons, Sidebar, Navbar)
+
+    pages/ (Full views like Login, Dashboard, ProductsList)
+
+    services/ (Axios configuration and API calls)
+
+    store/ (Zustand state management)
+
+
+  

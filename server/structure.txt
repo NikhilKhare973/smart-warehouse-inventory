@@ -1,0 +1,12 @@
+server/
+├── src/
+│   ├── config/         # Database configurations, environment variables
+│   ├── middleware/     # Auth checks, role validation, error handlers
+│   ├── controllers/    # Request handling & orchestration
+│   ├── routes/         # Express routing definitions
+│   └── utils/          # Helper functions (JWT generation, encryption)
+├── prisma/
+│   └── schema.prisma
+├── .env
+├── package.json
+└── src/index.js        # App entry point
