@@ -21,6 +21,7 @@ app.use('/api/products', productRoutes);
 app.use('/api/stock', stockRoutes);
 app.use('/api/purchase-requests', purchaseRequestRoutes);
 app.use('/api/dashboard', require('./src/routes/dashboardRoutes'));
+
 app.use('/api/categories', require('./src/routes/categoryRoutes'));
 
 // --- Health Checks ---
