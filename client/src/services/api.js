@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://smart-warehouse-inventory.onrender.com/api', // Pointing to your Node Express server
+    baseURL: 'https://smart-warehouse-inventory.onrender.com/', // Pointing to your Node Express server
 });
 
 // Automatically attach the JWT token to every outgoing request
