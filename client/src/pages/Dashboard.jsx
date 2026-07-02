@@ -37,6 +37,21 @@ export default function Dashboard() {
     );
   }
 
+   // NEW: Safety check - if data is null or doesn't have metrics, show an error state instead of crashing
+  if (!data || !data.metrics) {
+    return (
+      <div className="flex flex-col h-64 items-center justify-center text-red-500 bg-red-50 rounded-xl border border-red-100 p-6">
+        <h3 className="text-lg font-bold mb-2">
+          Unable to connect to database
+        </h3>
+        <p className="text-sm text-red-400">
+          The server is waking up or temporarily unavailable. Please refresh the
+          page in 10 seconds.
+        </p>
+      </div>
+    );
+  }
+
   // Format data for the Recharts BarChart
   const chartData = [
     {
