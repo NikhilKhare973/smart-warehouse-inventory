@@ -7,25 +7,29 @@ const useAuthStore = create((set) => ({
     isAuthenticated: !!localStorage.getItem('token'),
     isLoading: false,
 
-    login: async (email, password) => {
-        set({ isLoading: true });
-        try {
-            const response = await api.post('/auth/login', { email, password });
-            const { token, user } = response.data;
-
-            // Save to local storage so the user stays logged in after a refresh
-            localStorage.setItem('token', token);
-            localStorage.setItem('user', JSON.stringify(user));
-
-            set({ user, token, isAuthenticated: true, isLoading: false });
-            return { success: true };
-        } catch (error) {
-            set({ isLoading: false });
-            return {
-                success: false,
-                message: error.response?.data?.message || 'Invalid credentials'
-            };
-        }
+    // Inside your authStore...
+login: async (email, password) => {
+  set({ loading: true, error: null });
+  try {
+    // COMMENT OUT OR REMOVE THE ACTUAL API CALL FOR NOW:
+    // const response = await axios.post('...', { email, password });
+    
+    // BYPASS MODE: Create a fake successful login response immediately
+    const mockUser = { id: 1, name: "Demo Admin", email: "admin@test.com", role: "ADMIN" };
+    const mockToken = "fake-jwt-token-for-demo-purposes";
+    
+    // Save to localStorage just like your real code does
+    localStorage.setItem('token', mockToken);
+    localStorage.setItem('user', JSON.stringify(mockUser));
+    
+    // Update your store state
+    set({ user: mockUser, token: mockToken, isAuthenticated: true, loading: false });
+    return true;
+  } catch (error) {
+    set({ error: "Login failed", loading: false });
+    return false;
+  }
+}
     },
 
     logout: () => {
