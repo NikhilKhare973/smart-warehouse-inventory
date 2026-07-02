@@ -1,41 +1,44 @@
 const jwt = require('jsonwebtoken');
+const prisma = require('../config/db'); // 1. We must import prisma to talk to the DB
 const JWT_SECRET = process.env.JWT_SECRET;
 
-// Verify JWT Validity (BYPASSED FOR DEMO)
-exports.authenticate = (req, res, next) => {
-    // BYPASS MODE: Always inject a valid fake user and move to the next function immediately
-    req.user = { 
-        id: 1, 
-        userId: 1,         // Added both id and userId just in case your controllers look for either name
-        email: "admin@test.com", 
-        role: "ADMIN" 
-    };
-    return next(); 
+// Verify JWT Validity (SMART BYPASS)
+exports.authenticate = async (req, res, next) => { // 2. Add 'async' here
+    try {
+        // 3. Grab the REAL admin user from your Neon database
+        const realAdmin = await prisma.user.findFirst({
+            where: { email: 'admin@test.com' }
+        });
 
-    /* -------------------------------------------------------------
-       Your original token verification code is kept safely below,
-       but the server will ignore it because of the 'return next()' above.
-       ------------------------------------------------------------- */
-    const token = req.header('Authorization')?.split(' ')[1]; 
+        // 4. Inject the real database UUID into the request
+        req.user = { 
+            id: realAdmin.id, 
+            userId: realAdmin.id,
+            email: realAdmin.email, 
+            role: realAdmin.role 
+        };
+        return next(); 
 
-    if (!token) {
-        return res.status(401).json({ message: 'No token, authorization denied' });
+    } catch (error) {
+        console.error("Bypass Database Error:", error);
+        return res.status(500).json({ message: "Failed to connect to Neon database" });
     }
 
+    /* --- Original Code Ignored Below --- */
+    const token = req.header('Authorization')?.split(' ')[1]; 
+    if (!token) return res.status(401).json({ message: 'No token' });
     try {
-        const decoded = jwt.verify(token, JWT_SECRET);
-        req.user = decoded; 
+        req.user = jwt.verify(token, JWT_SECRET);
         next();
     } catch (err) {
-        res.status(401).json({ message: 'Token is invalid or expired' });
+        res.status(401).json({ message: 'Invalid token' });
     }
 };
 
-// Authorize specific roles (This will now always pass because role is "ADMIN")
 exports.authorizeRoles = (...allowedRoles) => {
     return (req, res, next) => {
         if (!allowedRoles.includes(req.user.role)) {
-            return res.status(403).json({ message: 'Forbidden: Access Denied' });
+            return res.status(403).json({ message: 'Forbidden' });
         }
         next();
     };
