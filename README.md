@@ -3,7 +3,7 @@
 A **full-stack Smart Warehouse Inventory Management System (Mini ERP)** built to help businesses efficiently manage inventory, track stock movement in real time, automate low-stock alerts, process purchase requests, and maintain a secure audit trail of every inventory transaction.
 
 > **Digital Brain for a Physical Warehouse**
-
+![Dashboard](/screenshots/1.png)
 ---
 
 ## 🚀 Elevator Pitch
@@ -23,7 +23,7 @@ It enables businesses to:
 When an Amazon warehouse employee scans a product before shipping, the inventory is automatically updated, the action is recorded, and if the stock falls below a safe threshold, the system alerts the manager to reorder the item.
 
 This project simulates that workflow.
-
+![Dashboard](/screenshots/2.png)
 ---
 
 # ✨ Features
@@ -39,6 +39,7 @@ This project simulates that workflow.
 - 🔍 Product Search & Filtering
 - 📱 Responsive UI
 
+![Dashboard](/screenshots/3.png)
 ---
 
 # 🛠️ Tech Stack
@@ -70,7 +71,8 @@ This project simulates that workflow.
 
 - Render (Frontend & Backend)
 - Neon PostgreSQL
-
+![Dashboard](/screenshots/4.png)
+![Dashboard](/screenshots/5.png)
 ---
 
 # 🏗️ System Architecture
@@ -94,6 +96,7 @@ This project simulates that workflow.
                   ▼
         PostgreSQL Database
 ```
+![Dashboard](/screenshots/6.png)
 
 ---
 
@@ -117,7 +120,7 @@ smart-warehouse/
 │
 └── README.md
 ```
-
+![Dashboard](/screenshots/7.png)
 ---
 
 # 🔄 Application Workflow
@@ -143,7 +146,7 @@ The dashboard provides real-time warehouse insights, including:
 - Recent Inventory Activity
 - Purchase Requests
 - Interactive Charts
-
+![Dashboard](/screenshots/8.png)
 ---
 
 # 🔒 Security Features
@@ -185,8 +188,10 @@ The application uses a relational PostgreSQL database.
 > **Add Screenshot Here**
 
 ```
-assets/dashboard.png
+[Dashboard](/screenshots/8.png)
 ```
+
+![Dashboard](/screenshots/8.png)
 
 ---
 
@@ -194,9 +199,9 @@ assets/dashboard.png
 
 > **Add Screenshot Here**
 
-```
-assets/inventory.png
-```
+
+![Dashboard](/screenshots/9.png)
+
 
 ---
 
@@ -204,9 +209,9 @@ assets/inventory.png
 
 > **Add Screenshot Here**
 
-```
-assets/products.png
-```
+
+![Dashboard](/screenshots/10.png)
+
 
 ---
 
@@ -214,9 +219,9 @@ assets/products.png
 
 > **Add Screenshot Here**
 
-```
-assets/purchase-requests.png
-```
+
+![Dashboard](/screenshots/11.png)
+
 
 ---
 
@@ -224,9 +229,9 @@ assets/purchase-requests.png
 
 > **Add Screenshot Here**
 
-```
-assets/audit-logs.png
-```
+
+![Dashboard](/screenshots/12.png)
+
 
 ---
 
@@ -361,20 +366,41 @@ This project is licensed under the MIT License.
 
 ---
 
+# 📸 How to add your screenshots
+Create an assets folder in your repository:
+```text
+smart-warehouse/
+│
+├── assets/
+│   ├── dashboard.png
+│   ├── inventory.png
+│   ├── products.png
+│   ├── purchase-requests.png
+│   └── audit-logs.png
+│
+└── README.md
+```
+Then replace the placeholder code blocks with Markdown image links, for example:
+## Dashboard
+
+![Dashboard](assets/dashboard.png)
+
+---
+
 # 👨‍💻 Author
 
 **Your Name**
 
-GitHub: https://github.com/your-username
+GitHub: [https://github.com/Nikhil-Khare](https://github.com/NikhilKhare973?tab=repositories)
 
-LinkedIn: https://linkedin.com/in/your-profile
+LinkedIn: [https://linkedin.com/Nikhil Khare](https://www.linkedin.com/in/nikhilkhare973/)
 
 ---
 
 ⭐ If you found this project helpful, don't forget to **Star** the repository!
 
 
-<img src="/screenshots/1.png"/>
+<!-- <img src="/screenshots/1.png"/>
 <img src="/screenshots/2.png"/>
 <img src="/screenshots/3.png"/>
-<img src="/screenshots/4.png"/>
+<img src="/screenshots/4.png"/> -->
